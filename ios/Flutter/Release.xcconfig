@@ -14,9 +14,10 @@ import Foundation
 
 @objc(MyClass)
 class MySwiftClass: NSObject {
-    // This is the beginning of a Swift class named `MySwiftClass`. The `@objc` attribute exposes the class to Objective-C, allowing it to be used in projects that mix Swift and Objective-C code.
+    // This line indicates the start of a Swift class named `MySwiftClass`.
+    // The `@objc` attribute exposes the class to Objective-C, allowing it to be used in projects that mix Swift and Objective-C code.
 
-    // The class inherits from `NSObject`, which is the root class of the Objective-C runtime and provides basic functionality for Swift classes that need to interact with Objective-C code.
-
+    // This class inherits from `NSObject`, which is the root class of the Objective-C runtime and provides basic functionality for Swift classes that need to interact with Objective-C code.
 }
+
 
