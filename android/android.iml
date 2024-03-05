@@ -1,32 +1,35 @@
+<!-- Module configuration for IntelliJ IDEA -->
 <module .... >
   ...
 </module>
 
-
+<!-- Component configuration for FacetManager -->
 <component name="FacetManager">
   ...
 </component>
 
-
+<!-- Facet configuration for Java-Gradle project type -->
 <facet type="java-gradle" name="Java-Gradle">
   ...
 </facet>
 
-
+<!-- Configuration settings for the module -->
 <configuration>
+  <!-- The path to the build folder -->
   <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/../build" />
+  <!-- Flag to indicate if the module is buildable or not -->
   <option name="BUILDABLE" value="false" />
 </configuration>
 
-
+<!-- Component configuration for NewModuleRootManager with JDK 1.8 language level -->
 <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
   ...
 </component>
 
-
+<!-- Content configuration for the module with the URL of the module directory -->
 <content url="file://$MODULE_DIR$">
   ...
 </content>
 
-
+<!-- Exclude folder configuration for .gradle folder -->
 <excludeFolder url="file://$MODULE_DIR$/.gradle" />
