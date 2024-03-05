@@ -1,31 +1,43 @@
+// The buildscript block is used to configure the build script itself, including repositories and dependencies.
 buildscript {
-    ext.kotlin_version = '1.3.50'
-    repositories {
-        google()
-        jcenter()
+    // This ext block is used to define custom properties for the build script.
+    ext.kotlin_version = '1.3.50' // The custom property 'kotlin_version' is set to '1.3.50'.
+
+    repositories { // This block defines the repositories where dependencies are fetched from.
+        google() // Google's Maven repository.
+        jcenter() // Bintray's JCenter repository, which is a large repository of libraries and tools.
     }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    dependencies { // This block defines the dependencies required for the build script.
+        classpath 'com.android.tools.build:gradle:3.5.0' // The Android Gradle plugin.
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // The Kotlin Gradle plugin.
     }
 }
 
+// The allprojects block is used to apply the same configuration to all projects in the build.
 allprojects {
-    repositories {
-        google()
-        jcenter()
+    repositories { // This block defines the repositories where dependencies are fetched from.
+        google() // Google's Maven repository.
+        jcenter() // Bintray's JCenter repository, which is a large repository of libraries and tools.
     }
 }
 
+// Set the root project's build directory to a custom location.
 rootProject.buildDir = '../build'
+
+// The subprojects block is used to apply the same configuration to all subprojects of the root project.
 subprojects {
+    // Set the build directory for each subproject.
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
+
+// Make the build of each subproject depend on the build of the 'app' project.
 subprojects {
     project.evaluationDependsOn(':app')
 }
 
+// The clean task is used to delete the build directory.
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
