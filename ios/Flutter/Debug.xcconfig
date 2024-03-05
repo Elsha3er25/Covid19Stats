@@ -1,1 +1,22 @@
-#include "Generated.xcconfig"
+#if DEBUG
+#define BASE_URL "https://dev.example.com"
+#elif STAGING
+#define BASE_URL "https://stage.example.com"
+#else
+#define BASE_URL "https://prod.example.com"
+#endif
+
+
+
+import Foundation
+
+
+
+@objc(MyClass)
+class MySwiftClass: NSObject {
+
+    // This is the beginning of a Swift class named `MySwiftClass`. The `@objc` attribute allows the class to be used in Objective-C code.
+    // The class inherits from `NSObject`, which is a base class for many Objective-C and Swift classes.
+
+}
+
