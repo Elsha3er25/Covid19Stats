@@ -1,7 +1,13 @@
-gradle-wrapper.jar
-/.gradle
-/captures/
-/gradlew
-/gradlew.bat
-/local.properties
-GeneratedPluginRegistrant.java
+// gradle-wrapper.jar: This file is the Gradle wrapper jar file, which is used to run Gradle builds without having to install Gradle separately.
+
+// .gradle: This directory contains the Gradle user home directory, which stores global and project-specific Gradle settings, caches, and wrappers.
+
+// captures/: This directory contains screenshot captures for UI tests.
+
+// gradlew: This is the Gradle wrapper script for Unix-based systems. It can be used to run Gradle commands without having to install Gradle separately.
+
+// gradlew.bat: This is the Gradle wrapper script for Windows systems. It can be used to run Gradle commands without having to install Gradle separately.
+
+// local.properties: This file contains local properties for the project, such as the path to the local Git repository.
+
+// GeneratedPluginRegistrant.java: This file contains the generated plugin registrant class for the project. It is used to register plugins with the Flutter framework.
