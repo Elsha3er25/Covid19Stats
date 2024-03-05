@@ -1,9 +1,10 @@
-import UIKit
-import Flutter
+import UIKit // Importing the UIKit framework, which provides the fundamental infrastructure for building iOS apps.
+import Flutter // Importing the Flutter framework, which enables the integration of Flutter with native iOS apps.
 
 // The @UIApplicationMain attribute identifies this class as the entry point for the app.
 // It also automatically creates an instance of this class when the app launches.
 @UIApplicationMain
+
 // This class is a subclass of FlutterAppDelegate, which is a custom class provided by the Flutter framework.
 // It is responsible for setting up the Flutter engine and integrating it with the native iOS app.
 @objc class AppDelegate: FlutterAppDelegate {
