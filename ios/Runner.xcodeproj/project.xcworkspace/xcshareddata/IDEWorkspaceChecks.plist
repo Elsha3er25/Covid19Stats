@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- This key-value pair specifies whether to generate a warning about 32-bit compatibility during the build process.
+	 A value of true indicates that such a warning will be generated. This file is likely used in the context of an Xcode project or workspace. -->
 	<key>IDEDidComputeMac32BitWarning</key>
 	<true/>
 </dict>
