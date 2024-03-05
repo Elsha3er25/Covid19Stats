@@ -7,9 +7,13 @@ import 'dart:developer' as dev; // For logging purposes
 // SelectionScreen is a StatefulWidget that displays a list of countries for the user to select.
 class SelectionScreen extends StatefulWidget {
   SelectionScreen({this.countries, this.selectedCountry}) : super();
-  final List countries; // List of all available countries
-  final String selectedCountry; // Initially selected country
-
+  
+  // List of all available countries
+  final List countries;
+  
+  // Initially selected country
+  final String selectedCountry;
+  
   @override
   _SelectionScreenState createState() => _SelectionScreenState();
 }
@@ -17,22 +21,23 @@ class SelectionScreen extends StatefulWidget {
 // _SelectionScreenState is the StatefulWidget's state, which contains the functionality for the screen.
 class _SelectionScreenState extends State<SelectionScreen> {
   // Variables and controllers for managing the search functionality and scrolling.
-  final scrollController = ScrollController();
-  final GlobalKey key = new GlobalKey();
+  final scrollController = ScrollController(); // Scroll controller for the ListView.
+  final GlobalKey key = new GlobalKey(); // Global key for the ListView.
   var countryFlags = {...}; // A map of country names to their respective flag emojis
-  final TextEditingController _controller = new TextEditingController();
-  FocusNode textFieldFocusNode;
-  bool searchFieldVisible = false;
-  List filteredCountries;
-  bool newSearch = true;
+  final TextEditingController _controller = new TextEditingController(); // Text editing controller for the search field.
+  FocusNode textFieldFocusNode; // Focus node for the search field.
+  bool searchFieldVisible = false; // Flag to control the visibility of the search field.
+  List filteredCountries; // Filtered list of countries based on search query.
+  bool newSearch = true; // Flag to track if a new search has started.
 
   // initState() is called when the State is initialized. It sets up the initial state of the widget.
   @override
   void initState() {
     super.initState();
 
-    filteredCountries = widget.countries;
-    textFieldFocusNode = new FocusNode();
+    filteredCountries = widget.countries; // Initialize the filtered countries list with all countries.
+    textFieldFocusNode = new FocusNode(); // Initialize the search field focus node.
+
     // Set up a post-frame callback to scroll to the initially selected country.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(milliseconds: 50), () {
@@ -50,17 +55,17 @@ class _SelectionScreenState extends State<SelectionScreen> {
   // dispose() is called when the State is removed from the tree. It cleans up resources used by the widget.
   @override
   void dispose() {
-    textFieldFocusNode.dispose();
+    textFieldFocusNode.dispose(); // Dispose the search field focus node.
     super.dispose();
   }
 
   // toggleSearchField() toggles the visibility of the search field and resets the filtered countries list.
   void toggleSearchField() {
     setState(() {
-      searchFieldVisible = !searchFieldVisible;
-      filteredCountries = widget.countries;
-      newSearch = true;
-      _controller.clear();
+      searchFieldVisible = !searchFieldVisible; // Toggle the search field visibility.
+      filteredCountries = widget.countries; // Reset the filtered countries list.
+      newSearch = true; // Set newSearch flag to true.
+      _controller.clear(); // Clear the search field text.
     });
   }
 
@@ -68,16 +73,16 @@ class _SelectionScreenState extends State<SelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff232d37),
+        backgroundColor: Color(0xff232d37), // Set the background color.
         appBar: AppBar(
-          title: Text('Select a country'),
+          title: Text('Select a country'), // Set the app bar title.
           actions: <Widget>[
             IconButton(
-                onPressed: toggleSearchField,
+                onPressed: toggleSearchField, // Toggle the search field visibility.
                 icon: Icon(Icons.search)),
           ],
         ),
-        body: Stack(
+        body: Stack( // Stack to position the search field and the list of countries.
           children: <Widget>[
             // Scrollbar wraps the ListView, providing a scrollbar for the list.
             Scrollbar(
@@ -98,7 +103,7 @@ class _SelectionScreenState extends State<SelectionScreen> {
               height: searchFieldVisible ? 80 : 0,
               onEnd: (){
                 if(searchFieldVisible)
-                  textFieldFocusNode.requestFocus();
+                  textFieldFocusNode.requestFocus(); // Request focus for the search field when it appears.
               },
               child: new Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -106,38 +111,12 @@ class _SelectionScreenState extends State<SelectionScreen> {
                   clipBehavior: Clip.hardEdge,
                   child: new Card(
                     child: new ListTile(
-                      leading: new Icon(Icons.search),
+                      leading: new Icon(Icons.search), // Search field leading icon.
                       title: new TextField(
-                        focusNode: textFieldFocusNode,
-                        enabled: searchFieldVisible,
-                        controller: _controller,
-                        decoration: new InputDecoration(hintText: 'Search', border: InputBorder.none),
+                        focusNode: textFieldFocusNode, // Associate the search field with the focus node.
+                        enabled: searchFieldVisible, // Enable the search field when the search field is visible.
+                        controller: _controller, // Associate the search field with the text editing controller.
+                        decoration: new InputDecoration(hintText: 'Search', border: InputBorder.none), // Set the search field hint text.
                         onTap: (){
                           if(newSearch = true)
-                            newSearch = false;
-                        },
-                        onChanged: (String value) {
-                          setState(() {
-                            newSearch = false;
-                            filteredCountries = widget.countries.where((s) => s.toLowerCase().contains(value.toLowerCase())).toList();
-                          });
-                        },
-                      ),
-                      trailing: new IconButton(
-                        icon: new Icon(Icons.cancel),
-                        onPressed: toggleSearchField,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ));
-  }
-
-  // getListTile() creates a ListTile for each country in the filtered list.
-  Widget getListTile(context, i, {bool firstInSearch = false, bool animated = false}) {
-    return InkWell(
-      onTap: () {
-       
+                            newSearch = false; // Handle onTap event for the search field
