@@ -4,8 +4,8 @@ def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 // Load plugin information from the .flutter-plugins file
 def plugins = new Properties()
 def pluginsFile = new File(flutterProjectRoot.toFile(), '.flutter-plugins')
-if (pluginsFile.exists()) {
-    pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) }
+if (pluginsFile.exists()) { // If the .flutter-plugins file exists
+    pluginsFile.withReader('UTF-8') { reader -> plugins.load(reader) } // Load the plugin information into the 'plugins' Properties object
 }
 
 // Iterate through the plugins and include them in the build
@@ -14,7 +14,7 @@ plugins.each { name, path ->
     def pluginDirectory = flutterProjectRoot.resolve(path).resolve('android').toFile()
     
     // Include the plugin project with its specific directory
-    include ":$name"
-    project(":$name").projectDir = pluginDirectory
+    include ":$name" // Include the plugin project with its name as the Gradle project name
+    project(":$name").projectDir = pluginDirectory // Set the project directory of the included plugin project
 }
 
