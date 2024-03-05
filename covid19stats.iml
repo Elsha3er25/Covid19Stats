@@ -1,15 +1,25 @@
+<!-- The module definition for a Java project in IntelliJ IDEA -->
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <!-- Root manager component for the module, handling compiler output and content exclusion -->
   <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <!-- Exclude output directories -->
     <exclude-output />
+
+    <!-- Content of the module, including source folders and excluded folders -->
     <content url="file://$MODULE_DIR$">
+      <!-- Source folders, one for regular source code and another for test code -->
       <sourceFolder url="file://$MODULE_DIR$/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+
+      <!-- Excluded folders, which should not be indexed or compiled -->
       <excludeFolder url="file://$MODULE_DIR$/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
+
+    <!-- Order entries for source folders and libraries -->
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
     <orderEntry type="library" name="Flutter Plugins" level="project" />
