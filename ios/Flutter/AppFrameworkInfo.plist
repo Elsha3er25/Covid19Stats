@@ -1,26 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>CFBundleDevelopmentRegion</key>
-  <string>$(DEVELOPMENT_LANGUAGE)</string>
-  <key>CFBundleExecutable</key>
-  <string>App</string>
-  <key>CFBundleIdentifier</key>
-  <string>io.flutter.flutter.app</string>
-  <key>CFBundleInfoDictionaryVersion</key>
-  <string>6.0</string>
-  <key>CFBundleName</key>
-  <string>App</string>
-  <key>CFBundlePackageType</key>
-  <string>FMWK</string>
-  <key>CFBundleShortVersionString</key>
-  <string>1.0</string>
-  <key>CFBundleSignature</key>
-  <string>????</string>
-  <key>CFBundleVersion</key>
-  <string>1.0</string>
-  <key>MinimumOSVersion</key>
-  <string>8.0</string>
-</dict>
-</plist>
+<?xml version="1.0" encoding="UTF-8"?> <!-- This line sets the version and encoding of the XML document -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> <!-- This line sets the document type and location of the DTD file for the Property List -->
+<plist version="1.0"> <!-- This line sets the version of the Property List -->
+<dict> <!-- This line starts the dictionary object -->
+  <key>CFBundleDevelopmentRegion</key> <!-- This line sets the key for the localization region -->
+  <string>$(DEVELOPMENT_LANGUAGE)</string> <!-- This line sets the value for the localization region to the development language -->
+  <key>CFBundleExecutable</key> <!-- This line sets the key for the executable name -->
+  <string>App</string> <!-- This line sets the value for the executable name to "App" -->
+  <key>CFBundleIdentifier</key> <!-- This line sets the key for the bundle identifier -->
+  <string>io.flutter.flutter.app</string> <!-- This line sets the value for the bundle identifier to "io.flutter.flutter.app" -->
+  <key>CFBundleInfoDictionaryVersion</key> <!-- This line sets the key for the info dictionary version -->
+  <string>6.0</string> <!-- This line sets the value for the info dictionary version to "6.0" -->
+  <key>CFBundleName</key> <!-- This line sets the key for the bundle name -->
+  <string>App</string> <!-- This line sets the value for the bundle name to "App" -->
+  <key>CFBundlePackageType</key> <!-- This line sets the key for the bundle package type -->
+  <string>FMWK</string> <!-- This line sets the value for the bundle package type to "FMWK" -->
+  <key>CFBundleShortVersionString</key> <!-- This line sets the key for the short version string -->
+  <string>1.0</string> <!-- This line sets
