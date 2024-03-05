@@ -70,17 +70,21 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     );
 
     chartsData["Global"] = [
+      // Initial data for global charts.
       [
+        // Total charts data.
         ["0", "1"],
         [0, 1],
         gradientColorsTotal
       ],
       [
+        // Recovered charts data.
         ["0", "1"],
         [0, 1],
         gradientColorsRecovered
       ],
       [
+        // Deaths charts data.
         ["0", "1"],
         [0, 1],
         gradientColorsDeaths
@@ -114,25 +118,31 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   int parseInteger(String s) {
     try {
+      // Parse a string to an integer.
       return int.parse(s.split("<")[0].replaceAll(",", "").replaceAll("+", ""));
     } catch (e) {
+      // If parsing fails, return 0.
       return 0;
     }
   }
 
   double parseDouble(String s) {
     try {
+      // Parse a string to a double.
       return double.parse(s.split("<")[0].replaceAll(",", "").replaceAll("+", ""));
     } catch (e) {
+      // If parsing fails, return 0.
       return 0;
     }
   }
 
   String getInnerString(String source, String a, String b) {
+    // Extract a substring between two other strings.
     return source.split(a)[1].split(b)[0];
   }
 
   String normalizeName(String n) {
+    // Replace special characters with their respective ASCII characters.
     return n.replaceAll("&ccedil;", "ç").replaceAll("&eacute;", "é");
   }
 
@@ -142,18 +152,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     var url = 'https://www.worldometers.info/coronavirus/';
     var response = await http.get(url);
     if (response.statusCode == 200) {
+      // Fetch the table row containing the total data.
       var row = response.body.split("<tr class=\"total_row\">")[1].split("</tr>")[0].split(">");
 
+      // Parse the total data and store it in the countryData map.
       countryData["Global"] = parseRow(row, true, "");
 
-      var tbody = getInnerString(response.body, "<tbody>", "</tbody>");
-      var rows = tbody.split("<tr style=\"\">");
-      rows.skip(1).forEach((rawRow) {
-        row = rawRow.split(">");
-        bool hasInnerTag = rawRow.contains("</a>") || rawRow.contains("</span>");
-        countryData[normalizeName(row[hasInnerTag ? 2 : 1].split("<")[0])] =
-            parseRow(row, hasInnerTag, rawRow.contains("</a>") ? getInnerString(rawRow, "href=\"", "\"") : null);
-      });
-
-      setState(() {
-
+      // Fetch the table body containing the country-specific data.
+      var tbody = getInnerString(response.body, "<tbody
